@@ -14,3 +14,5 @@ app.get('/', (req, res) => {
 });
 
 server.listen(port);
+
+console.log(`Port listening on ${port}`);
