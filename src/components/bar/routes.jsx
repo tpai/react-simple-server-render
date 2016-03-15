@@ -4,8 +4,10 @@ import { Route } from 'react-router';
 import Sidebar from '../Sidebar';
 import Layout from '../Layout';
 
-const Bar1 = () => (<div>Bar1</div>);
-const Bar2 = () => (<div>Bar2</div>);
+import style from './bar.scss';
+
+const Bar1 = () => (<div className={style.item}>Bar1</div>);
+const Bar2 = () => (<div className={style.item}>Bar2</div>);
 export default (
     <Route path="/bar" component={Layout}>
         <Route path="1" components={{ sidebar: Sidebar, content: Bar1 }} />
