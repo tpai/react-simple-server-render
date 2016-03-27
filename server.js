@@ -3,6 +3,7 @@ import http from 'http';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import {
+    IndexRoute,
     RouterContext,
     Route,
     browserHistory,
@@ -12,6 +13,7 @@ import {
 
 import foo from './src/components/foo/routes';
 import bar from './src/components/bar/routes';
+const Home = () => (<div><a href='/foo/1'>foo 1</a></div>);
 const routes = { foo, bar };
 
 const app = express();
@@ -19,6 +21,9 @@ const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
+app.get('/', (req, res) => {
+    res.send(ReactDOM.renderToString(<Home />));
+});
 app.use('/*/*', (req, res, next) => {
     const param = req.params[0];
     match({
