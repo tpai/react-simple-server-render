@@ -29,7 +29,7 @@ module.exports = {
         ]
     },
     postcss: [
-        autoprefixer({browsers:["> 5%", "ie >= 8", "Firefox < 20"]}),
-        precss()
+        precss(),
+        autoprefixer({browsers:["> 5%", "ie >= 8", "Firefox < 20"]})
     ]
 };
